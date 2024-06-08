@@ -1,0 +1,25 @@
+# Define a graph as an adjacency list
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+# Initialize a set to keep track of visited nodes
+visited = set()
+
+def dfs(node):
+    # Mark the current node as visited
+    visited.add(node)
+    print(node, end=' ')
+
+    # Visit all adjacent nodes that have not been visited
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(neighbor)
+
+# Start DFS from an arbitrary node (e.g., 'A')
+dfs('A')
